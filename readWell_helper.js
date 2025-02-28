@@ -1,1 +1,130 @@
-javascript:(()=>{let e=(e,t)=>{void 0!=t.nextSibling?t.parentNode.insertBefore(e,t.nextSibling):t.parentNode.appendChild(e)},t=t=>{for(var n=0;void 0!=t.childNodes[n];n++)if("#text"==t.childNodes[n].nodeName&&0!=t.childNodes[n].textContent.trim().length){var r=t.childNodes[n],i=0;let l=new Intl.Segmenter("bn",{granularity:"word"}),a=[...l.segment(t.childNodes[n].textContent)].map(e=>e.segment);a.forEach(t=>{if(0===t.trim().length){var n=document.createTextNode(t);e(n,r),i++,r=n;return}let l=new Intl.Segmenter("bn",{granularity:"grapheme"}),a=[...l.segment(t)].map(e=>e.segment),o=Math.ceil(a.length/2);0===o&&(o=1);let d=document.createElement("b");if(d.innerHTML=a.slice(0,o).join(""),d.classList.add("readingHelper"),e(d,r),i++,r=d,a.length>o){var n=document.createTextNode(a.slice(o).join(""));e(n,r),i++,r=n}}),t.removeChild(t.childNodes[n]),n+=i-1}};var n={B:!0,META:!0,LINK:!0,SCRIPT:!0,STYLE:!0};let r=e=>{if(null!=e&&void 0!=e.body){var i=e.body.getElementsByClassName("readingHelper");if(i.length>0)for(var l=i.length-1;void 0!=i[l];l--){var a=i[l],o=i[l].nextSibling,d=i[l].parentNode,g=a.innerHTML+(o?o.textContent:"");g=g.replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">"),a.replaceWith(document.createTextNode(g)),o&&o.remove(),d.normalize()}else for(var m=e.body.getElementsByTagName("*"),l=0;void 0!=m[l];l++)if(!n[m[l].nodeName]&&1==m[l].nodeType){if("IFRAME"==m[l].nodeName)r(m[l].contentDocument);else{if(0==m[l].childNodes.length)continue;t(m[l])}}}};r(document)})();
+javascript: void (() => {
+  /* Insert one Node after another Node */
+  const insertAfter = (newNode, existingNode) => {
+    if (existingNode.nextSibling != undefined)
+      existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+    else existingNode.parentNode.appendChild(newNode);
+  };
+
+  /* Check if Intl.Segmenter is available */
+  const supportsSegmenter = typeof Intl !== "undefined" && typeof Intl.Segmenter !== "undefined";
+
+  /* Function to split text into words */
+  const splitIntoWords = (text, lang) => {
+    if (supportsSegmenter) {
+      const segmenter = new Intl.Segmenter(lang, { granularity: "word" });
+      return [...segmenter.segment(text)].map(seg => seg.segment);
+    }
+    /* Fallback: Use regex for basic word splitting */
+    return text.match(/\S+|\s+/g) || [];
+  };
+
+  /* Function to split words into graphemes (characters) */
+  const splitIntoGraphemes = (word, lang) => {
+    if (supportsSegmenter) {
+      const graphemeSegmenter = new Intl.Segmenter(lang, { granularity: "grapheme" });
+      return [...graphemeSegmenter.segment(word)].map(seg => seg.segment);
+    }
+    /* Fallback: Treat each character as a separate grapheme */
+    return word.split("");
+  };
+
+  /* Process all children of a Node */
+  const HalfBold = (parentElement) => {
+    for (var i = 0; parentElement.childNodes[i] != undefined; i++) {
+      if (
+        parentElement.childNodes[i].nodeName == "#text" &&
+        parentElement.childNodes[i].textContent.trim().length != 0
+      ) {
+        var recentNode = parentElement.childNodes[i];
+        var newNodeCount = 0;
+
+        /* Split text into words */
+        const words = splitIntoWords(parentElement.childNodes[i].textContent, "bn");
+
+        words.forEach(word => {
+          if (word.trim().length === 0) {
+            var textNode = document.createTextNode(word);
+            insertAfter(textNode, recentNode);
+            newNodeCount++;
+            recentNode = textNode;
+            return;
+          }
+
+          /* Split word into characters (graphemes) */
+          const characters = splitIntoGraphemes(word, "bn");
+
+          /* Determine split point */
+          let boldLength = Math.ceil(characters.length / 2);
+          if (boldLength === 0) boldLength = 1;
+
+          /* Apply bold */
+          const bold = document.createElement("b");
+          bold.innerHTML = characters.slice(0, boldLength).join("");
+          bold.classList.add("readingHelper");
+          insertAfter(bold, recentNode);
+          newNodeCount++;
+          recentNode = bold;
+
+          /* Add remaining text */
+          if (characters.length > boldLength) {
+            var textNode = document.createTextNode(characters.slice(boldLength).join(""));
+            insertAfter(textNode, recentNode);
+            newNodeCount++;
+            recentNode = textNode;
+          }
+        });
+
+        /* Remove the original text element */
+        parentElement.removeChild(parentElement.childNodes[i]);
+        i += newNodeCount - 1;
+      }
+    }
+  };
+
+  /* Prevent processing certain nodes */
+  var ignoreTags = {
+    B: true,
+    META: true,
+    LINK: true,
+    SCRIPT: true,
+    STYLE: true,
+  };
+
+  const processDocumentBody = (element) => {
+    if (element == null) return;
+    if (element.body == undefined) return;
+
+    var existingHelperElements = element.body.getElementsByClassName("readingHelper");
+
+    if (existingHelperElements.length > 0) {
+      /* Restore original text */
+      for (var i = existingHelperElements.length - 1; existingHelperElements[i] != undefined; i--) {
+        var start = existingHelperElements[i];
+        var end = existingHelperElements[i].nextSibling;
+        var parent = existingHelperElements[i].parentNode;
+        var plain = start.innerHTML + (end ? end.textContent : "");
+
+        plain = plain.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+        start.replaceWith(document.createTextNode(plain));
+        if (end) end.remove();
+        parent.normalize();
+      }
+    } else {
+      /* Process all elements */
+      var collection = element.body.getElementsByTagName("*");
+      for (var i = 0; collection[i] != undefined; i++) {
+        if (ignoreTags[collection[i].nodeName]) continue;
+        if (collection[i].nodeType != 1) continue;
+        if (collection[i].nodeName == "IFRAME") {
+          processDocumentBody(collection[i].contentDocument);
+        } else {
+          if (collection[i].childNodes.length == 0) continue;
+          HalfBold(collection[i]);
+        }
+      }
+    }
+  };
+
+  processDocumentBody(document);
+})();
