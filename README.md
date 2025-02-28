@@ -2,7 +2,7 @@
 - 🇬🇧 [English](README.md)  
 - 🇧🇩 [বাংলায় পড়ুন](README.bn.md)
   
-# **🔹 Bengali Bionic Reading Bookmarklet**  
+# **🔹 English & Bengali Bionic Reading Bookmarklet**  
 
 ## **What is this?**  
 **Th**is is a **bookm**arklet **th**at **ma**kes **Engl**ish **a**nd **Ben**gali  **te**xt **eas**ier **to** **re**ad by **app**lying **Bionic Reading**. It **highl**ights **par**ts of **wor**ds **t**o **impr**ove **reada**bility and **sp**eed, **with**out **requ**iring a **brow**ser **exten**sion.  
