@@ -5,7 +5,7 @@
 # **🔹 Bengali Bionic Reading Bookmarklet**  
 
 ## **What is this?**  
-**Th**is is a **bookm**arklet **th**at **ma**kes **Ben**gali **te**xt **eas**ier **to** **re**ad by **app**lying **Bionic Reading**. It **highl**ights **par**ts of **wor**ds **t**o **impr**ove **reada**bility and **sp**eed, **with**out **requ**iring a **brow**ser **exten**sion.  
+**Th**is is a **bookm**arklet **th**at **ma**kes **Engl**ish **a**nd **Ben**gali  **te**xt **eas**ier **to** **re**ad by **app**lying **Bionic Reading**. It **highl**ights **par**ts of **wor**ds **t**o **impr**ove **reada**bility and **sp**eed, **with**out **requ**iring a **brow**ser **exten**sion.  
 
 **Footnote**: The above section was written in bionic format, did you find it easier to read? And the rest of the section is not written in Bionic just to let you feel how easy it is to read using bionic! 
 
