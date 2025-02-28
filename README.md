@@ -35,6 +35,7 @@ It works well in Both Bengali and English.
 ✔️ **Reversible** – Click again to restore the original text  
 
 # How to use it
+## You can also Watch this [video to setup](https://drive.google.com/file/d/11gaVCh6ZoZwWt2_FzFEgRV5Uv6-wLGMG/view?usp=drive_link) 
 ## Step 1: Add a new bookmark in your browser,
 - Click the `Bookmark (star *)` icon on the right side of your browser's top search bar. [_You can bookmark any page, we'll edit that later anyway_]
 - Name the bookmark as `Read-Well`
