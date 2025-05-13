@@ -2,27 +2,23 @@
 - 🇬🇧 [English](README.md)  
 - 🇧🇩 [বাংলায় পড়ুন](README.bn.md)
   
-# **🔹 English & Bengali Bionic Reading Bookmarklet**  
+# **🔹 English & Bengali Fast Reading Bookmarklet**  
 
 ## **What is this?**  
-**Th**is is a **bookm**arklet **th**at **ma**kes **Engl**ish **a**nd **Ben**gali  **te**xt **eas**ier **to** **re**ad by **app**lying **Bionic Reading**. It **highl**ights **par**ts of **wor**ds **t**o **impr**ove **reada**bility and **sp**eed, **with**out **requ**iring a **brow**ser **exten**sion.  
+**Th**is is a **bookm**arklet **th**at **ma**kes **Engl**ish **a**nd **Ben**gali  **te**xt **eas**ier **to** **re**ad by **app**lying a **Fast Reading** **techn**ique. It **highl**ights **par**ts of **wor**ds **t**o **impr**ove **reada**bility and **sp**eed, **with**out **requ**iring a **brow**ser **exten**sion.  
 
-**Footnote**: The above section was written in bionic format, did you find it easier to read? And the rest of the section is not written in Bionic just to let you feel how easy it is to read using bionic! 
-
-## **👀 What is Bionic Reading?**  
-**Bionic Reading** is a reading method that enhances **text comprehension and speed** by making the most important parts of words bold. Your brain can then **fill in the rest**, making reading feel faster and smoother.  
+**Footnote**: The above section was written in that Fast-Reading format, did you find it easier to read? And the rest of the section is written normally, just to let you feel how easy it is to read using this technique! 
 
 🧠 **How does it help?**  
 ✔️ **Increases reading speed** – Your brain processes words faster.  
 ✔️ **Reduces eye strain** – Easier tracking of words.  
 ✔️ **Improves focus** – Helps people with ADHD, dyslexia, and reading fatigue.  
-- Read this [Bionic Article in Bionic format](https://www.brighthr.com/ie/blog/healthy-minds/bionic-reading-and-adhd-effective-ways-to-support-your-staff/) to learn more.
   
-Most Bionic Reading tools only work for **English or Latin scripts**, but this **bookmarklet brings it to Bengali!**  
+Most of the similar Reading-Helping tools only work for **English or Latin scripts**, but this **bookmarklet brings it to Bengali!**  
 
 
 ## **🤔 Why did I code for this Although there are some English Extensions availale?**  
-I don't feel safe installing browser extensions that request excessive permissions like "Read and change all your data on all websites." Most **Bionic Reading** solutions require full browser access, which feels unnecessary for a simple text-processing task.  Also, I didn't find any good resources that supports Bengali text well. 
+I don't feel safe installing browser extensions that request excessive permissions like "Read and change all your data on all websites." Most similar solutions require full browser access, which feels unnecessary for a simple text-processing task.  Also, I didn't find any good resources that supports Bengali text well. 
 
 So, I coded this **lightweight, permission-free bookmarklet** that you can run **only when you need it**! Just click, and it enhances the text instantly. No installations, no tracking, no security risks.  
 It works well in Both Bengali and English. 
@@ -35,7 +31,6 @@ It works well in Both Bengali and English.
 ✔️ **Reversible** – Click again to restore the original text  
 
 # How to use it
-## You can also Watch this [video to setup](https://drive.google.com/file/d/11gaVCh6ZoZwWt2_FzFEgRV5Uv6-wLGMG/view?usp=drive_link) 
 ## Step 1: Add a new bookmark in your browser,
 - Click the `Bookmark (star *)` icon on the right side of your browser's top search bar. [_You can bookmark any page, we'll edit that later anyway_]
 - Name the bookmark as `Read-Well`
@@ -44,7 +39,7 @@ It works well in Both Bengali and English.
 
 ## Step 2:
 ### Option 1 (if you're used to with github)
-- Click the `readWell_helper.js` file above, or click [here](https://github.com/nafiul-adnan/Read-Well-Bionic/blob/main/readWell_helper.js)
+- Click the `readWell_helper.js` file above, or click [here](https://github.com/nafiul-adnan/Read-Well-Faster/blob/main/readWell_helper.js)
 - Click the `Copy Raw file` button to copy the javascript minified code. 
 
 ### Alternatively, you can just copy the below text:
@@ -57,7 +52,7 @@ It works well in Both Bengali and English.
 - Press **Save** 
 
 ## Step 4:
-- Now whenever you need to convert a page's text to Bionic, Just click the `Read-Well` bookmark option and it'll convert the page to bionic.
+- Now whenever you need to convert a page's text to Fast-Reading, Just click the `Read-Well` bookmark option and it'll convert the page to Fast-Reading format.
 - Click the `Read-Well` bookmark option twice and it'll reverse the page to normal.
 - This code also supports both Bangla and English text conversation.
 
